@@ -366,6 +366,7 @@ header{
     margin-top: 2em;
 }
 
+
 .hero-wrapper section{
    display: flex;
    max-width: 1232px;
@@ -387,7 +388,7 @@ header{
 }
 
 .text-hero h1{
-    margin: 0;
+    margin-top: 0.2em;
 }
   
 .text-hero h2{
@@ -419,6 +420,7 @@ header{
     min-width: 50%;
     max-width: 100%;
     border-radius: 0px 21px 21px 0px;
+
 }
 
 /* tablet hero */
@@ -469,6 +471,9 @@ header{
 
 
   img {
+    max-width: 100%;
+  }
+  .agai-timeline{
     max-width: 100%;
   }
   
@@ -793,6 +798,12 @@ header{
     margin-top: 5em;
     margin-bottom: 5em;
 }
+
+.process-wrapper h3{
+    color: var(--secondary);
+    border-bottom: 0,3 solid var(--primary);
+}
+
 
 .section-content img {
     width:105px; /* Adjust the percentage to control the image size */
