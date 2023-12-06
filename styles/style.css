@@ -1029,6 +1029,7 @@ header{
     background-color: var(--greyone);
     box-shadow: 0 1px 5px var(--dark);
     margin: 10px;
+    text-decoration: none;
     margin-top: 5px;
     padding: 5px;
     border-radius: 8px;
@@ -1070,6 +1071,60 @@ header{
     transform: scale(1.05);
 }
 /*End of reviews*/
+
+.FAQ-container {
+  width: 80%;
+  max-width: 600px;
+}
+
+.FAQ-item {
+  background-color: var(--main); /* White background for items */
+  border: 1px solid var(--greyone); /* Light border */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Softer shadow */
+}
+
+.FAQ-header {
+  background-color: var(--secondary); 
+  color: var(--main); /* White text */
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  transition: background-color 0.3s ease;
+}
+
+.FAQ-header:hover {
+  background-color: var(--primary); /* Darker shade of purple */
+}
+
+.FAQ-content {
+  background-color: var(--main); /* Very light grey for content */
+  padding: 0 15px;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.FAQ-content p {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.active .icon {
+  transform: rotate(45deg);
+}
 
 /*Contact pagina*/
 /* Desktop */
