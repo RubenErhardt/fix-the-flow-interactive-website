@@ -17,9 +17,15 @@
       <div class="step" data-step="3">Stap 4</div>
       <div class="step" data-step="4">Stap 5</div>
 
+
+
   </div>
 
   <style>
+    :root{
+        --width:0;
+    }
+
     .process-wrapper {
         max-width: 1000px;
         margin: 50px auto;
@@ -37,7 +43,7 @@
     }
 
     #progress-bar {
-        width: 0;
+        width: var(--width);
         height: 100%;
         background: #4ECD5D;
         border-radius: 5px;
@@ -56,7 +62,7 @@
     }
 
     .step:hover{
-    width: 23%;
+    width: 21%;
     }
 
     .step.completed {
@@ -69,11 +75,14 @@
 <script>
 // Alle stappen op de pagina ophalen en in een groep plaatsen genaamd 'steps'
 var steps = document.querySelectorAll('.step');
-
+// console.log(steps);
+// console.log(steps[1])
 // Voor elke stap in de groep doen we het volgende:
 steps.forEach(function(step) {
+    // console.log(step)
     // Als iemand op een stap klikt, voeren we het volgende uit:
     step.addEventListener('click', function() {
+        // console.log(this)
         // We vertellen aan een speciale functie genaamd 'updateProgress' welke stap is gekozen
         // We gebruiken het nummer op de stap om te weten welke stap het is
         updateProgress(Number(step.dataset.step));
@@ -91,7 +100,8 @@ function updateProgress(stepIndex) {
     //dus 2+1*20=60, +% voor percentage dus 60% van de balk vult
 
     // We passen de breedte van de balk aan om te laten zien dat we vooruitgang boeken
-    progressBar.style.width = progressWidth;
+    //progressBar.style.width = progressWidth;  
+    progressBar.style.setProperty('--width', progressWidth);
     // in de style zie je dus width =0, backgroundcolor groen, maar omdat deze functie ervoor zorgt dat progressBar.style.width = progressWidth;, je dus bij stap 3
     //stepindex 2 60% krijgt dus width wordt 60% ipv 0
 
@@ -138,6 +148,62 @@ function updateProgress(stepIndex) {
     }
 }
 </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knop Kleur Verandering</title>
+    <style>
+       
+       #kleurVeranderKnop{
+            width: 300px;
+            height: 250px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="kleurVeranderKnop">Verander Kleur</button>
+
+    <script>
+        // Zoek de knop in de DOM
+        const knop = document.getElementById('kleurVeranderKnop');
+
+        // Voeg een event listener toe aan de knop voor het click event
+        knop.addEventListener('click', function() {
+            // Verander de kleur van de knop (hier wordt de kleur naar rood veranderd)
+            knop.style.backgroundColor = 'red';
+        });
+
+        knop.addEventListener("dblclick", function() {
+            knop.style.backgroundColor='green';
+        });
+
+        function random_bg_color() {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            return "rgb(" + x + "," + y + "," + z + ")";
+        }
+
+      knop.addEventListener("keydown", function() {
+            // Verander de achtergrondkleur van de knop naar een willekeurige kleur
+            knop.style.backgroundColor = random_bg_color();
+        });
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
+
 </body>
 </html>
   
