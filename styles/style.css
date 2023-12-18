@@ -366,6 +366,7 @@ header {
 .process-content{
     background-color: var(--greyone);
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .process-wrapper {
