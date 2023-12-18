@@ -2,31 +2,43 @@
 //timeline
 
 document.addEventListener("DOMContentLoaded", function () {
-    var timelineItems = document.querySelectorAll('.timeline-item');
-  
-    function isInViewport(element) {
-      var rect = element.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-      );
-    }
-  
-    function handleScroll() {
-      timelineItems.forEach(function (item) {
-        if (isInViewport(item)) {
+  var timelineItems = document.querySelectorAll('.timeline-item');
+
+  function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+
+  function handleScroll() {
+    timelineItems.forEach(function (item) {
+      if (isInViewport(item)) {
+        setTimeout(function () {
           showContent(item);
-        }
-      });
-    }
-  
-    function showContent(item) {
-      item.querySelector('.timeline-content').classList.add('show');
-    }
-  
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initially on page load
-  });
+        }, 400); //milisecondes
+      } else {
+        setTimeout(function () {
+          removeContent(item);
+        }, 400); //dit zijn milisecondes
+      }
+    });
+  }
+
+  function showContent(item) {
+    item.querySelector('.timeline-content').classList.add('show');
+  }
+
+  function removeContent(item) {
+    item.querySelector('.timeline-content').classList.remove('show');
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); 
+});
+
+
 
 //preview
 document.addEventListener("DOMContentLoaded", function () {
@@ -88,10 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function submitForm() {
-        // Hier kun je de logica toevoegen om het formulier te verwerken
-        // Bijvoorbeeld: het verzenden van gegevens naar een server via Ajax
-
-        // Voor dit voorbeeld tonen we gewoon een succesbericht
         responseDiv.textContent = 'Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.';
         contactForm.reset();
     }

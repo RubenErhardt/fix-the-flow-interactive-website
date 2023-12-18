@@ -271,7 +271,6 @@ header {
     margin-top: 100px;
     border-bottom: 0.2em solid var(--primary);
     margin-left: 20px;
-    background-color: var(--greyone);
 }
 
 .timeline-context h3 {
@@ -364,7 +363,6 @@ header {
 }
 
 .process-content{
-    background-color: var(--greyone);
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -509,7 +507,6 @@ header {
 }
 
 .general-article {
-    background-color: var(--greyone);
     padding: 5px;
 }
 
